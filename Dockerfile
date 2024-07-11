@@ -1,5 +1,5 @@
 # Etapa 1: Construção do binário
-FROM golang:alpine AS builder
+FROM golang:1.22.5-alpine3.20 AS builder
 
 # Instalar git
 RUN apk update && apk add --no-cache git
