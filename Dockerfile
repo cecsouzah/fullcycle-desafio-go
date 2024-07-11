@@ -11,14 +11,14 @@ WORKDIR /app
 COPY . .
 
 # Construir o binário
-RUN go mod init olamundo
-RUN go build -o /go/bin/olamundo
+RUN go mod init fullcycle
+RUN go build -o /go/bin/fullcycle
 
 # Etapa 2: Criar imagem mínima
 FROM scratch
 
 # Copiar o binário construído para a nova imagem
-COPY --from=builder /go/bin/olamundo /go/bin/olamundo
+COPY --from=builder /go/bin/fullcycle /go/bin/fullcycle
 
 # Definir o ponto de entrada
-ENTRYPOINT ["/go/bin/olamundo"]
+ENTRYPOINT ["/go/bin/fullcycle"]
