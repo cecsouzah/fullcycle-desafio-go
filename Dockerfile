@@ -12,7 +12,7 @@ COPY . .
 
 # Construir o binário
 RUN go mod init fullcycle
-RUN go build -o /go/bin/fullcycle
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o /go/bin/fullcycle
 
 # Etapa 2: Criar imagem mínima
 FROM scratch
